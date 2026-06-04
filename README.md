@@ -304,19 +304,19 @@ VITE_API_URL=http://localhost:5000/api/v1
 
 ## Login
 
-<img src="docs/login.png">
+<img src="docs/login.jpg">
 
 ## Dashboard
 
-<img src="docs/dashboard.png">
+<img src="docs/dashboard.jpg">
 
 ## History
 
-<img src="docs/history.png">
+<img src="docs/history.jpg">
 
 ## Analytics
 
-<img src="docs/analytics.png">
+<img src="docs/analytics.jpg">
 
 ---
 
