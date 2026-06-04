@@ -1,0 +1,49 @@
+// schema.prisma
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id                String    @id @default(uuid()) @db.Uuid
+  name              String
+  email             String    @unique
+  passwordHash      String
+  isVerified        Boolean   @default(false)
+  verificationToken String?
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+  deletedAt         DateTime?
+  expenses          Expense[]
+}
+
+model Category {
+  id          String    @id @default(uuid()) @db.Uuid
+  name        String    @unique
+  description String?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  expenses    Expense[]
+}
+
+model Expense {
+  id               String    @id @default(uuid()) @db.Uuid
+  userId           String    @db.Uuid
+  categoryId       String    @db.Uuid
+  description      String
+  amount           Int
+  transactionDate  DateTime
+  aiConfidence     Float?
+  predictionSource String?
+  createdAt        DateTime  @default(now())
+  updatedAt        DateTime  @updatedAt
+  deletedAt        DateTime?
+
+  user             User      @relation(fields: [userId], references: [id])
+  category         Category  @relation(fields: [categoryId], references: [id])
+}
