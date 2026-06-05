@@ -45,7 +45,8 @@ html, body, [class*="css"]  {
 """, unsafe_allow_html=True)
 
 # --- Data Loading ---
-DATA_DIR = "data"
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+DATA_DIR = os.path.join(BASE_DIR, "data")
 
 @st.cache_data
 def load_data(filename):
