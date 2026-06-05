@@ -3,14 +3,14 @@ import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
 
 const categories = [
-  'Makanan',
-  'Transportasi',
-  'Belanja',
-  'Tagihan',
-  'Hiburan',
-  'Pendidikan',
-  'Kesehatan',
-  'Lainnya',
+  'Food & Dining',
+  'Transportation',
+  'Shopping & Retail',
+  'Entertainment & Recreation',
+  'Utilities & Services',
+  'Healthcare & Medical',
+  'Education',
+  'Others',
 ];
 
 async function main() {

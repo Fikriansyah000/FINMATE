@@ -13,5 +13,6 @@ exports.loginSchema = zod_1.z.object({
     body: zod_1.z.object({
         email: zod_1.z.string().email('Invalid email address'),
         password: zod_1.z.string().min(6, 'Password must be at least 6 characters'),
+        rememberMe: zod_1.z.boolean().optional(),
     }),
 });

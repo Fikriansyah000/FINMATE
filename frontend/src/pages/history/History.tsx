@@ -42,9 +42,9 @@ export const History = () => {
 
   const getCategoryBadgeVariant = (name: string) => {
     const lower = name.toLowerCase();
-    if (['makanan', 'food'].includes(lower)) return 'success';
-    if (['transportasi', 'transport'].includes(lower)) return 'info';
-    if (['tagihan', 'bills'].includes(lower)) return 'warning';
+    if (['food & dining', 'food'].includes(lower)) return 'success';
+    if (['transportation', 'transport'].includes(lower)) return 'info';
+    if (['utilities & services', 'bills'].includes(lower)) return 'warning';
     return 'default';
   };
 
@@ -115,8 +115,9 @@ export const History = () => {
           <div className="flex gap-2">
             <select className="h-10 rounded-md border border-slate-300 bg-white px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500">
               <option>All Categories</option>
-              <option>Makanan</option>
-              <option>Transportasi</option>
+              <option>Food & Dining</option>
+              <option>Transportation</option>
+              <option>Shopping & Retail</option>
             </select>
             <Button variant="outline" className="px-3">
               <Filter size={18} />

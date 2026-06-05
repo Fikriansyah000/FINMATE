@@ -9,4 +9,6 @@ const router = (0, express_1.Router)();
 router.use(auth_middleware_1.authenticate);
 router.post('/', (0, validate_middleware_1.validate)(expense_validation_1.createExpenseSchema), expense_controller_1.ExpenseController.createExpense);
 router.get('/', (0, validate_middleware_1.validate)(expense_validation_1.getExpensesSchema), expense_controller_1.ExpenseController.getExpenses);
+router.patch('/:id', (0, validate_middleware_1.validate)(expense_validation_1.updateExpenseSchema), expense_controller_1.ExpenseController.updateExpense);
+router.delete('/:id', (0, validate_middleware_1.validate)(expense_validation_1.deleteExpenseSchema), expense_controller_1.ExpenseController.deleteExpense);
 exports.default = router;

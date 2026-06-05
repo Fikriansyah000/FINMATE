@@ -19,24 +19,53 @@ class ExpenseService {
                 aiConfidence: confidence,
                 predictionSource: source,
             },
-            include: {
-                category: true,
-            },
+            include: { category: true },
         });
         return expense;
     }
     static async getExpenses(userId) {
-        // Basic get without complex filters for skeleton
-        const expenses = await prisma_1.prisma.expense.findMany({
-            where: { userId },
-            include: {
-                category: true,
-            },
-            orderBy: {
-                transactionDate: 'desc',
-            },
+        return prisma_1.prisma.expense.findMany({
+            where: { userId, deletedAt: null },
+            include: { category: true },
+            orderBy: { transactionDate: 'desc' },
         });
-        return expenses;
+    }
+    static async updateExpense(userId, expenseId, data) {
+        const existing = await prisma_1.prisma.expense.findFirst({
+            where: { id: expenseId, userId, deletedAt: null },
+        });
+        if (!existing) {
+            throw { statusCode: 404, message: 'Expense not found' };
+        }
+        const updateData = { ...data };
+        if (data.transactionDate) {
+            updateData.transactionDate = new Date(data.transactionDate);
+        }
+        if (data.description && data.description !== existing.description) {
+            const { categoryId, confidence, source } = await expense_classifier_service_1.ExpenseClassifierService.predictCategory(data.description);
+            if (categoryId) {
+                updateData.categoryId = categoryId;
+                updateData.aiConfidence = confidence;
+                updateData.predictionSource = source;
+            }
+        }
+        return prisma_1.prisma.expense.update({
+            where: { id: expenseId },
+            data: updateData,
+            include: { category: true },
+        });
+    }
+    static async deleteExpense(userId, expenseId) {
+        const existing = await prisma_1.prisma.expense.findFirst({
+            where: { id: expenseId, userId, deletedAt: null },
+        });
+        if (!existing) {
+            throw { statusCode: 404, message: 'Expense not found' };
+        }
+        return prisma_1.prisma.expense.update({
+            where: { id: expenseId },
+            data: { deletedAt: new Date() },
+        });
     }
 }
 exports.ExpenseService = ExpenseService;

@@ -7,8 +7,8 @@ exports.verifyToken = exports.generateToken = void 0;
 const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 const JWT_SECRET = process.env.JWT_SECRET || 'fallback_secret';
 const JWT_EXPIRES_IN = process.env.JWT_EXPIRES_IN || '7d';
-const generateToken = (userId) => {
-    return jsonwebtoken_1.default.sign({ id: userId }, JWT_SECRET, { expiresIn: JWT_EXPIRES_IN });
+const generateToken = (userId, expiresIn) => {
+    return jsonwebtoken_1.default.sign({ id: userId }, JWT_SECRET, { expiresIn: (expiresIn || JWT_EXPIRES_IN) });
 };
 exports.generateToken = generateToken;
 const verifyToken = (token) => {

@@ -34,7 +34,8 @@ class AuthService {
         if (!isMatch) {
             throw { statusCode: 401, message: 'Invalid credentials' };
         }
-        const token = (0, jwt_1.generateToken)(user.id);
+        const expiresIn = data.rememberMe ? '30d' : '1d';
+        const token = (0, jwt_1.generateToken)(user.id, expiresIn);
         return { user: { id: user.id, name: user.name, email: user.email }, token };
     }
 }

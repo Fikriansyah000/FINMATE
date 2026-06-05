@@ -10,6 +10,7 @@ export const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
+  const [rememberMe, setRememberMe] = useState(false);
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   
@@ -22,7 +23,7 @@ export const Login = () => {
     setIsLoading(true);
     
     try {
-      const response = await api.post('/auth/login', { email, password });
+      const response = await api.post('/auth/login', { email, password, rememberMe });
       login(response.data.user, response.data.token);
       navigate('/');
     } catch (err: any) {
@@ -69,7 +70,12 @@ export const Login = () => {
         
         <div className="flex items-center justify-between">
           <label className="flex items-center gap-2 text-sm text-slate-600">
-            <input type="checkbox" className="rounded text-primary-600 focus:ring-primary-500 border-slate-300" />
+            <input 
+              type="checkbox" 
+              className="rounded text-primary-600 focus:ring-primary-500 border-slate-300" 
+              checked={rememberMe}
+              onChange={(e) => setRememberMe(e.target.checked)}
+            />
             Remember me for 30 days
           </label>
           <a href="#" className="text-sm font-medium text-primary-600 hover:text-primary-700">Forgot password?</a>
