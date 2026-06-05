@@ -1,4 +1,4 @@
-# 💰 FinMate
+# FinMate
 
 <p align="center">
   <img src="docs/banner.png" width="100%" alt="FinMate Banner">
@@ -19,7 +19,7 @@
 
 ---
 
-# 📖 About
+# About
 
 FinMate is an AI-powered personal finance tracking platform designed to help users monitor their spending habits and gain financial insights.
 
@@ -29,16 +29,16 @@ Example:
 
 | Description          | Predicted Category            |
 | -------------------- | ----------------------------- |
-| fried chicken        | 🍔 Food & Dining              |
-| gasoline refill      | 🚗 Transportation             |
-| school tuition       | 🎓 Education                  |
-| netflix subscription | 🎬 Entertainment & Recreation |
+| fried chicken        | Food & Dining                 |
+| gasoline refill      | Transportation                |
+| school tuition       | Education                     |
+| netflix subscription | Entertainment & Recreation    |
 
 ---
 
-# ✨ Features
+# Features
 
-## 🔐 Authentication
+## Authentication
 
 * User Registration
 * User Login
@@ -47,7 +47,7 @@ Example:
 * Protected Routes
 * Automatic Logout on Token Expiration
 
-## 💸 Expense Management
+## Expense Management
 
 * Add Expense
 * Edit Expense
@@ -55,7 +55,7 @@ Example:
 * Expense History
 * User-Specific Data Isolation
 
-## 🤖 AI Categorization
+## AI Categorization
 
 Users only provide:
 
@@ -70,7 +70,7 @@ FinMate automatically:
 * Records Prediction Source
 * Falls back to Rule-Based Classification if AI Service is unavailable
 
-## 📊 Analytics
+## Analytics
 
 * Total Spending
 * Total Transactions
@@ -78,7 +78,7 @@ FinMate automatically:
 * Monthly Spending Trends
 * Category Distribution
 
-## 🛡️ Security
+## Security
 
 * JWT Authentication
 * Helmet Security Headers
@@ -90,7 +90,7 @@ FinMate automatically:
 
 ---
 
-# 🏗️ System Architecture
+# System Architecture
 
 ```text
 Frontend (React + Vite)
@@ -110,7 +110,7 @@ PostgreSQL
 
 ---
 
-# 🤖 AI Categorization Flow
+# AI Categorization Flow
 
 ```text
 User Input
@@ -136,7 +136,7 @@ Stored in PostgreSQL
 
 ---
 
-# 🛠️ Tech Stack
+# Tech Stack
 
 ## Frontend
 
@@ -169,18 +169,21 @@ Stored in PostgreSQL
 
 ---
 
-## AI Service
+## AI Service & Data Science
 
-| Technology | Purpose              |
-| ---------- | -------------------- |
-| FastAPI    | AI Inference API     |
-| TensorFlow | Deep Learning Model  |
-| NumPy      | Data Processing      |
-| Joblib     | Label Encoder Loader |
+| Technology | Purpose                            |
+| ---------- | ---------------------------------- |
+| FastAPI    | AI Inference API                   |
+| TensorFlow | Deep Learning Model                |
+| NumPy      | Data Processing                    |
+| Joblib     | Label Encoder Loader               |
+| Streamlit  | Data Science Analytics Dashboard   |
+| Plotly     | Interactive Data Visualization     |
+| Pandas     | Data Manipulation & Aggregation    |
 
 ---
 
-# 🧠 AI Model
+# AI Model
 
 FinMate uses a custom TensorFlow text classification model trained on transaction descriptions.
 
@@ -206,7 +209,7 @@ FinMate uses a custom TensorFlow text classification model trained on transactio
 
 ---
 
-# 📂 Project Structure
+# Project Structure
 
 ```text
 finmate/
@@ -222,6 +225,12 @@ finmate/
 │   └── package.json
 │
 ├── ai-service/
+│   ├── data-science/
+│   │   ├── app.py
+│   │   ├── data_preparation.py
+│   │   ├── data/
+│   │   ├── requirements.txt
+│   │   └── FINMATE_Capstone_Proyek.ipynb
 │   ├── model/
 │   ├── main.py
 │   ├── requirements.txt
@@ -236,7 +245,7 @@ finmate/
 
 ---
 
-# 🚀 Installation
+# Installation
 
 ## Prerequisites
 
@@ -258,7 +267,7 @@ psql --version
 
 ---
 
-# 📥 Clone Repository
+# Clone Repository
 
 ```bash
 git clone https://github.com/Fikriansyah000/FINMATE.git
@@ -268,7 +277,7 @@ cd FINMATE
 
 ---
 
-# ⚙️ Backend Setup
+# Backend Setup
 
 ```bash
 cd backend
@@ -324,7 +333,7 @@ http://localhost:5000
 
 ---
 
-# 🤖 AI Service Setup
+# AI Service Setup
 
 Navigate to AI Service:
 
@@ -397,7 +406,42 @@ curl -X POST http://localhost:8000/predict \
 
 ---
 
-# 🎨 Frontend Setup
+# Data Science & Dashboard Setup
+
+The Data Science module is an interactive Streamlit dashboard that provides an in-depth analysis of credit card transaction behavior, spending categorization, anomaly/fraud detection patterns, and NLP model performance.
+
+Navigate to the Data Science module:
+
+```bash
+cd ai-service/data-science
+```
+
+Install the required dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+Run the Streamlit Dashboard:
+
+```bash
+streamlit run app.py
+```
+
+The application will launch on your default web browser, usually at:
+```text
+http://localhost:8501
+```
+
+**Features included in the Dashboard:**
+- **Overview:** General summary, KPIs, and demographic distributions.
+- **Spending Analysis:** Identifies primary spending habits and indicators of overspending.
+- **Time Patterns & Fraud:** Detects financial risk patterns over time using specific data anomalies.
+- **NLP Performance Evaluation:** Accuracy and classification report for the Logistic Regression & Naive Bayes models developed in the Capstone notebook.
+
+---
+
+# Frontend Setup
 
 ```bash
 cd frontend
@@ -425,7 +469,7 @@ http://localhost:5173
 
 ---
 
-# 🐳 Docker Setup
+# Docker Setup
 
 Run the entire stack:
 
@@ -442,7 +486,7 @@ Services:
 
 ---
 
-# 📡 API Endpoints
+# API Endpoints
 
 ## Authentication
 
@@ -474,7 +518,7 @@ Services:
 
 ---
 
-# 🔑 Authentication
+# Authentication
 
 Protected endpoints require:
 
@@ -498,7 +542,7 @@ JWT expires in 1 day
 
 ---
 
-# 📸 Screenshots
+# Screenshots
 
 ## Login
 
@@ -526,7 +570,7 @@ JWT expires in 1 day
 
 ---
 
-# 🗺️ Roadmap
+# Roadmap
 
 ## MVP
 
@@ -546,7 +590,7 @@ JWT expires in 1 day
 
 ---
 
-# 👥 Team
+# Team
 
 Developed as part of the **DBS Foundation Coding Camp Capstone Project**.
 
@@ -554,6 +598,6 @@ Team: **FinMate**
 
 ---
 
-# 📄 License
+# License
 
 MIT License © FinMate Team
