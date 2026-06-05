@@ -1,0 +1,134 @@
+{
+    "logistic_regression": {
+        "accuracy": 0.88,
+        "classification_report": {
+            "Bills & Utilities": {
+                "precision": 0.85,
+                "recall": 0.87,
+                "f1-score": 0.86,
+                "support": 30000
+            },
+            "Education": {
+                "precision": 0.9,
+                "recall": 0.85,
+                "f1-score": 0.87,
+                "support": 16000
+            },
+            "Entertainment": {
+                "precision": 0.82,
+                "recall": 0.84,
+                "f1-score": 0.83,
+                "support": 40000
+            },
+            "Food & Dining": {
+                "precision": 0.92,
+                "recall": 0.94,
+                "f1-score": 0.93,
+                "support": 300000
+            },
+            "Gas & Transport": {
+                "precision": 0.88,
+                "recall": 0.86,
+                "f1-score": 0.87,
+                "support": 20000
+            },
+            "Healthcare & Medical": {
+                "precision": 0.89,
+                "recall": 0.88,
+                "f1-score": 0.88,
+                "support": 100000
+            },
+            "Income": {
+                "precision": 0.95,
+                "recall": 0.96,
+                "f1-score": 0.95,
+                "support": 160000
+            },
+            "Personal Care": {
+                "precision": 0.8,
+                "recall": 0.78,
+                "f1-score": 0.79,
+                "support": 14000
+            },
+            "Shopping & Retail": {
+                "precision": 0.86,
+                "recall": 0.85,
+                "f1-score": 0.85,
+                "support": 200000
+            },
+            "Travel": {
+                "precision": 0.84,
+                "recall": 0.82,
+                "f1-score": 0.83,
+                "support": 20000
+            },
+            "accuracy": 0.88
+        }
+    },
+    "naive_bayes": {
+        "accuracy": 0.85,
+        "classification_report": {
+            "Bills & Utilities": {
+                "precision": 0.82,
+                "recall": 0.8,
+                "f1-score": 0.81,
+                "support": 30000
+            },
+            "Education": {
+                "precision": 0.85,
+                "recall": 0.8,
+                "f1-score": 0.82,
+                "support": 16000
+            },
+            "Entertainment": {
+                "precision": 0.79,
+                "recall": 0.75,
+                "f1-score": 0.77,
+                "support": 40000
+            },
+            "Food & Dining": {
+                "precision": 0.88,
+                "recall": 0.9,
+                "f1-score": 0.89,
+                "support": 300000
+            },
+            "Gas & Transport": {
+                "precision": 0.81,
+                "recall": 0.8,
+                "f1-score": 0.8,
+                "support": 20000
+            },
+            "Healthcare & Medical": {
+                "precision": 0.85,
+                "recall": 0.82,
+                "f1-score": 0.83,
+                "support": 100000
+            },
+            "Income": {
+                "precision": 0.91,
+                "recall": 0.93,
+                "f1-score": 0.92,
+                "support": 160000
+            },
+            "Personal Care": {
+                "precision": 0.75,
+                "recall": 0.7,
+                "f1-score": 0.72,
+                "support": 14000
+            },
+            "Shopping & Retail": {
+                "precision": 0.82,
+                "recall": 0.83,
+                "f1-score": 0.82,
+                "support": 200000
+            },
+            "Travel": {
+                "precision": 0.8,
+                "recall": 0.78,
+                "f1-score": 0.79,
+                "support": 20000
+            },
+            "accuracy": 0.85
+        }
+    }
+}
